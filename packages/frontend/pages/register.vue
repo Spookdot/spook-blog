@@ -42,6 +42,7 @@ const onSubmit = async () => {
     navigateTo("/");
   } catch (e) {
     console.log(e);
+    alert(e.error.message);
   }
 };
 </script>
