@@ -19,6 +19,8 @@ const onSubmit = async () => {
     await login({ identifier: identifier.value, password: password.value });
 
     navigateTo("/");
-  } catch (e) {}
+  } catch (e) {
+    alert(e.error.message);
+  }
 };
 </script>
