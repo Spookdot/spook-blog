@@ -3,7 +3,7 @@
   <input type="text" v-model="identifier" />
   <p>Password</p>
   <input type="password" v-model="password" />
-  <button type="submit" v-on:click="onSubmit">Login</button>
+  <button type="submit" @click="onSubmit">Login</button>
   <NuxtLink to="forgotPassword">Forgot password</NuxtLink>
 </template>
 
