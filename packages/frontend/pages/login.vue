@@ -16,7 +16,7 @@ const password = ref("");
 
 const onSubmit = async () => {
   try {
-    await login({ identifier, password });
+    await login({ identifier: identifier.value, password: password.value });
 
     navigateTo("/");
   } catch (e) {}
