@@ -1,16 +1,15 @@
 <template>
   <p>E-Mail Adress</p>
   <input type="text" v-model="email" />
-  <p>E-Mail Adress</p>
+  <p>Confirm E-Mail Adress</p>
   <input type="text" v-model="confirmEmail" />
   <p>Username</p>
   <input type="text" v-model="username" />
   <p>Password</p>
   <input type="password" v-model="password" />
   <p>Confirm password</p>
-  <input type="text" v-model="confirmPassword" />
-  <button type="submit" v-on:click="onSubmit">Login</button><br />
-  <NuxtLink to="forgotPassword">Forgot password</NuxtLink>
+  <input type="password" v-model="confirmPassword" />
+  <button type="submit" v-on:click="onSubmit">Register</button><br />
 </template>
 
 <script setup lang="ts">
@@ -37,6 +36,8 @@ const onSubmit = async () => {
     await register({ username, email, password });
 
     navigateTo("/");
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+  }
 };
 </script>
