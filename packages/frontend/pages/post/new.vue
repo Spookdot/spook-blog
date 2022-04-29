@@ -10,8 +10,8 @@ import { Strapi4Response } from "@nuxtjs/strapi";
 
 const { create } = useStrapi4();
 
-let title = "";
-let content = "";
+const title = ref("");
+const content = ref("");
 
 definePageMeta({
   middleware: "strapi-auth",
@@ -19,8 +19,8 @@ definePageMeta({
 
 const onSubmit = async () => {
   await create<Strapi4Response<Post>>("posts", {
-    title,
-    content,
+    title: title.value,
+    content: content.value,
     user: useStrapiUser(),
   });
 };

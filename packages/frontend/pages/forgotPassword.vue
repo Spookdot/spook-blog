@@ -11,14 +11,14 @@
 <script setup lang="ts">
 const { forgotPassword } = useStrapiAuth();
 
-let email = "";
-let emailSent = false;
+const email = ref("");
+const emailSent = ref(false);
 
 const onSubmit = async () => {
   try {
-    await forgotPassword({ email });
+    await forgotPassword({ email: email.value });
 
-    emailSent = true;
+    emailSent.value = true;
   } catch (e) {}
 };
 </script>

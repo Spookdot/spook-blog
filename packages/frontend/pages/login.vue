@@ -11,8 +11,8 @@
 const { login } = useStrapiAuth();
 const router = useRouter();
 
-let identifier = "";
-let password = "";
+const identifier = ref("");
+const password = ref("");
 
 const onSubmit = async () => {
   try {

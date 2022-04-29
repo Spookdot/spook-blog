@@ -16,24 +16,28 @@
 const router = useRouter();
 const { register } = useStrapiAuth();
 
-let email = "";
-let username = "";
-let password = "";
-let confirmEmail = "";
-let confirmPassword = "";
+const email = ref("");
+const username = ref("");
+const password = ref("");
+const confirmEmail = ref("");
+const confirmPassword = ref("");
 
 const onSubmit = async () => {
-  if (confirmPassword != password) {
+  if (confirmPassword.value != password.value) {
     alert("Passwords do not match");
     return;
   }
-  if (confirmEmail != email) {
+  if (confirmEmail.value != email.value) {
     alert("Emails do not match");
     return;
   }
 
   try {
-    await register({ username, email, password });
+    await register({
+      email: email.value,
+      username: username.value,
+      password: password.value,
+    });
 
     navigateTo("/");
   } catch (e) {
